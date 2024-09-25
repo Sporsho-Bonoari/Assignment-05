@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog FAQ</title>
+    <style>
+      .faq-item {
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+      .faq-question {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .faq-answer {
+        display: none;
+        margin-top: 10px;
+      }
+      .faq-question span {
+        font-weight: bold;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: #f8f8f8;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+      }
+      .navbar button {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #b4f461;
+        color: black;
+        cursor: pointer;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <button id="home-button">Home</button>
+    </div>
+
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What is the Document Object Model (DOM)?</span>
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="faq-answer">
+        <p>
+          The Document Object Model (DOM) is a programming API for HTML and XML
+          documents. It defines the logical structure of documents and the way a
+          document is accessed and manipulated.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>How do you select an element from the DOM?</span>
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="faq-answer">
+        <p>
+          The getElementById() method of the Document interface returns an
+          Element object representing the element whose id property matches the
+          specified string.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span
+          >What is event delegation in the context of the DOM, and why is it
+          useful?</span
+        >
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="faq-answer">
+        <p>
+          Event delegation refers to the process of using event propagation
+          (bubbling) to handle events at a higher level in the DOM than the
+          element on which the event originated. It allows us to attach a single
+          event listener for elements that exist now or in the future.
+        </p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span
+          >How do you manipulate an element's attributes and styles using the
+          DOM?</span
+        >
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="faq-answer">
+        <p>
+          If you want to change other attributes like id , href , or src , you
+          can use the setAttribute() method. The setAttribute() method accepts
+          two arguments: The name of the attribute to set. The value of the
+          attribute to set.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const toggleButtons = document.querySelectorAll(".toggle-btn");
+      const faqAnswers = document.querySelectorAll(".faq-answer");
+      toggleButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+          const answer = faqAnswers[index];
+          if (answer.style.display === "none" || answer.style.display === "") {
+            answer.style.display = "block";
+            button.innerText = "-";
+          } else {
+            answer.style.display = "none";
+            button.innerText = "+";
+          }
+        });
+      });
+      document
+        .getElementById("home-button")
+        .addEventListener("click", function () {
+          window.location.href = "index.html";
+        });
+    </script>
+  </body>
+</html>
